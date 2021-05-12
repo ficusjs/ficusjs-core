@@ -1,0 +1,64 @@
+{
+  "name": "@ficusjs/core",
+  "version": "1.0.0",
+  "description": "Core functions for FicusJS",
+  "type": "module",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "build": "run-p build:*",
+    "build:all": "rollup -i src/index.mjs -o dist/index.mjs -f es -p \"terser={mangle: { keep_fnames: true, toplevel: true, module: true }}\" -p \"filesize={}\"",
+    "build:custom-element": "rollup -i src/custom-element.mjs -o dist/custom-element.mjs -f es -p \"terser={mangle: { keep_fnames: true, toplevel: true, module: true }}\" -p \"filesize={}\"",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "dev": "run-p serve open",
+    "open": "open-cli http://localhost:8080/test/e2e",
+    "test": "npm run test:unit && start-server-and-test serve:silent http://localhost:8080 cy:run",
+    "test:unit": "ava test/unit/**/*.spec.mjs",
+    "test:unit:watch": "ava test/unit/**/*.spec.mjs --watch",
+    "test:unit:coverage": "c8 --all --include=src/**/*.mjs --reporter=lcov --reporter=text-summary ava test/unit/**/*.spec.mjs --verbose",
+    "serve": "http-server",
+    "serve:silent": "http-server -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ficusjs/ficusjs-core.git"
+  },
+  "keywords": [
+    "ficusjs",
+    "frontend",
+    "web-components"
+  ],
+  "author": "Matt Levy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ficusjs/ficusjs-core/issues"
+  },
+  "homepage": "https://github.com/ficusjs/ficusjs-core#readme",
+  "devDependencies": {
+    "@ficusjs/renderers": "3.1.0",
+    "ava": "3.15.0",
+    "c8": "7.7.2",
+    "cypress": "7.2.0",
+    "http-server": "0.12.3",
+    "jsdom": "16.5.3",
+    "node-sessionstorage": "1.0.0",
+    "npm-run-all": "4.1.5",
+    "open-cli": "6.0.1",
+    "rollup": "2.47.0",
+    "rollup-plugin-filesize": "9.1.1",
+    "rollup-plugin-terser": "7.0.2",
+    "sinon": "10.0.1",
+    "standard": "16.0.3",
+    "start-server-and-test": "1.12.1"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs"
+    },
+    "./custom-element": {
+      "import": "./dist/custom-element.mjs"
+    }
+  }
+}

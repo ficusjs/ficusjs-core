@@ -1,0 +1,42 @@
+body {
+  font-family: sans-serif;
+  font-weight: 200;
+}
+
+li {
+  line-height: 1.5;
+}
+
+li.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.instance {
+  display: block;
+  border: 1px dashed rgba(0, 0, 0, .2);
+  margin-bottom: 10px;
+}
+
+button.success {
+  background-color: darkgreen;
+  color: #ffffff;
+}
+
+button.info {
+  background-color: darkcyan;
+  color: #ffffff;
+}
+
+button.secondary {
+  background-color: darkgray;
+  color: #ffffff;
+}

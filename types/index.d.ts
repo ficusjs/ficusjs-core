@@ -1,6 +1,3 @@
-export interface FicusCustomElement extends HTMLElement {
-}
-
 export type CustomElementGetter = () => any
 export type CustomElementMethod = (...args: any[]) => void
 

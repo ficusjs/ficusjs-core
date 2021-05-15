@@ -1,10 +1,7 @@
-import { createCustomElement, html } from '../util/custom-element.mjs'
-
-createCustomElement('mock-basic', {
-  mounted () {
-    console.log('mounted!')
-  },
-  render () {
-    return html`<span>Basic custom element</span>`
-  }
-})
+import './async-render.mjs'
+import './basic.mjs'
+import './computed.mjs'
+import './lifecycle.mjs'
+import './props.mjs'
+import './methods.mjs'
+import './slots.mjs'

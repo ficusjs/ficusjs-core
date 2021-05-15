@@ -1,11 +1,11 @@
 /* global describe cy before it  */
-describe('Custom element', () => {
+describe('Basic component', () => {
   before(() => {
     cy.visit('custom-element')
   })
 
   it('is rendered', () => {
     cy.get('mock-basic')
-      .should('have.text', 'Basic custom element')
+      .should('have.text', 'Basic component')
   })
 })

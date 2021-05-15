@@ -1,6 +1,6 @@
 {
   "name": "@ficusjs/core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Core functions for FicusJS",
   "type": "module",
   "main": "dist/index.mjs",

@@ -25,7 +25,7 @@ test('render default slot', t => {
           return html`<p>${this.slots.default}</p>`
         }
       })
-      const basicComp = elementFromString(`<default-slot-comp><span>This is the default slot</span></default-slot-comp>`)
+      const basicComp = elementFromString('<default-slot-comp><span>This is the default slot</span></default-slot-comp>')
       body.appendChild(basicComp)
       t.is(document.querySelector('default-slot-comp p').textContent, 'This is the default slot')
       basicComp.remove()
@@ -47,7 +47,7 @@ test('render named slot', t => {
           `
         }
       })
-      const basicComp = elementFromString(`<named-slot-comp><span slot="first">This is the named slot</span></named-slot-comp>`)
+      const basicComp = elementFromString('<named-slot-comp><span slot="first">This is the named slot</span></named-slot-comp>')
       body.appendChild(basicComp)
       t.is(document.querySelector('named-slot-comp span:first-child').textContent, 'This is the named slot')
       basicComp.remove()

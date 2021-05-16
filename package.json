@@ -13,6 +13,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "dev": "run-p serve open",
+    "lint": "standard \"./src/**/*.mjs\" \"./test/**/*.mjs\"",
     "open": "open-cli http://localhost:8080/test/e2e",
     "test": "npm run test:unit && start-server-and-test serve:silent http://localhost:8080 cy:run",
     "test:unit": "ava test/unit/**/*.spec.mjs",

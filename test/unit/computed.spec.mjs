@@ -1,6 +1,5 @@
 import { JSDOM } from 'jsdom'
 import test from 'ava'
-import sinon from 'sinon'
 import { createCustomElement } from '../../src/index.mjs'
 import { loadRenderer } from '../helpers/renderer.mjs'
 

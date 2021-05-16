@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es2015",
+    "checkJs": true
+  },
+  "include": [
+    "src/**/*.mjs"
+  ]
+}

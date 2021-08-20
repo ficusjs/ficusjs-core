@@ -132,3 +132,28 @@ test('async render custom element', t => {
       t.is(document.querySelector('async-render-comp p').textContent, 'Async render component')
     })
 })
+
+test('no renderer but dom element rendered', t => {
+  const body = document.body
+  const created = sinon.spy()
+  const mounted = sinon.spy()
+  const removed = sinon.spy()
+  createCustomElement('no-renderer-comp', {
+    created,
+    mounted,
+    removed,
+    render () {
+      const elem = document.createElement('p')
+      elem.textContent = 'Basic component'
+      return elem
+    }
+  })
+  const basicComp = document.createElement('no-renderer-comp')
+  body.appendChild(basicComp)
+  t.is(basicComp.componentTagName, 'no-renderer-comp')
+  t.is(document.querySelector('no-renderer-comp p').textContent, 'Basic component')
+  t.truthy(created.called)
+  t.truthy(mounted.called)
+  basicComp.remove()
+  t.truthy(removed.called)
+})

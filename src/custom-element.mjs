@@ -2,6 +2,7 @@ import { collateObservedAttrs } from './util/collate-observed-attrs.mjs'
 import { toKebabCase } from './util/to-kebab-case.mjs'
 import { isPromise } from './util/is-promise.mjs'
 import { emit } from './util/emit.mjs'
+import { elementRenderer } from './util/element-renderer.mjs'
 
 export function createCustomElement (tagName, props) {
   const observedAttrs = collateObservedAttrs(props.props)
@@ -77,7 +78,7 @@ export function createCustomElement (tagName, props) {
         this.render = options.render || null
 
         // set the default template renderer
-        this.templateRenderer = options.renderer
+        this.templateRenderer = options.renderer || elementRenderer
 
         // Create a template instance we can call with each render
         this.template = null

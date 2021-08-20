@@ -17,7 +17,7 @@ export interface CustomElementPropertyTree {
 }
 
 export type CustomElementOptions<T> = {
-  renderer: (what: T, where: Element) => void
+  renderer?: (what: T, where: Element) => void
   render: () => T
   computed?: CustomElementComputedTree
   props?: CustomElementPropertyTree

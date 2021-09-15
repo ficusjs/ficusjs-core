@@ -54,6 +54,9 @@ export function createCustomElement (tagName, props) {
       }
 
       _init (options) {
+        // metadata for devtools
+        this.ficusCustomElement = tagName
+
         // It's handy to access what was passed through originally, so we'll store in private props
         this._props = options.props || {}
         this._computed = options.computed || {}

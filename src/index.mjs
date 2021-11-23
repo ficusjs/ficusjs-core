@@ -1,2 +1,3 @@
 import { createCustomElement } from './custom-element.mjs'
-export { createCustomElement }
+import { use } from './module.mjs'
+export { createCustomElement, use }

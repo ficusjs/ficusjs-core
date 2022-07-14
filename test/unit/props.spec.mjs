@@ -69,6 +69,7 @@ test('update props', t => {
     .then(({ html, renderer }) => {
       const body = document.body
       const updated = sinon.spy()
+      const propsDidUpdate = sinon.spy()
       createCustomElement('update-props', {
         renderer,
         props: {
@@ -77,6 +78,7 @@ test('update props', t => {
           }
         },
         updated,
+        propsDidUpdate,
         render () {
           return html`<p>Hi there, ${this.props.name}</p>`
         }
@@ -88,6 +90,7 @@ test('update props', t => {
       comp.setAttribute('name', 'Fred')
       t.is(document.querySelector('update-props p').textContent, 'Hi there, Fred')
       t.truthy(updated.called)
+      t.truthy(propsDidUpdate.called)
     })
 })
 

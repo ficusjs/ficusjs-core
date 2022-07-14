@@ -26,6 +26,7 @@ export type CustomElementOptions<T> = {
   mounted?: () => void
   updated?: () => void
   removed?: () => void
+  propsDidUpdate?: () => void
 } & {
   [key: string]: CustomElementMethod
 }

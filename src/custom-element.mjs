@@ -39,6 +39,9 @@ export function createCustomElement (tagName, props) {
         if (this.connectedCallbackCount == null) return
         this._checkInit()
         this._preprocess()
+        if (typeof this.propsDidUpdate === 'function' && this.isMountedCalled) {
+          this.propsDidUpdate()
+        }
       }
 
       // custom props and private methods
@@ -91,6 +94,7 @@ export function createCustomElement (tagName, props) {
         this.mounted = options.mounted || null
         this.updated = options.updated || null
         this.removed = options.removed || null
+        this.propsDidUpdate = options.propsDidUpdate || null
         this.isCreatedCalled = false // ensure callback is only called once
         this.isMountedCalled = false // ensure callback is only called once
         this.isRemovedCalled = false // ensure callback is only called once

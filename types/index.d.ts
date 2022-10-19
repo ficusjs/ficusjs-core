@@ -40,7 +40,7 @@ type ExternalModuleArgs<T> = { [P in keyof T]: T[P] }
 export type ModuleArgs<T> = ExternalModuleArgs<T> & { use: UseFn }
 
 export interface Module<ModuleArgs> {
-  create: (args: ModuleArgs) => void
+  create: (args: ModuleArgs) => Promise<void> | void
 }
 
 export declare function use<T> (module: Module<T>): void

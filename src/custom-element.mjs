@@ -104,8 +104,8 @@ export function createCustomElement (tagName, props) {
           emit(this, eventName, { detail: data })
         }
 
-        // Allow methods and computed properties to be added to this instance
-        this._processMethodsAndComputedProps(options)
+        // Allow methods to be added to this instance
+        this._processMethods(options)
 
         // create instance properties
         this._processInstanceProps(this._props)
@@ -115,6 +115,9 @@ export function createCustomElement (tagName, props) {
           this.created()
           this.isCreatedCalled = true
         }
+
+        // Allow computed properties to be added to this instance
+        this._processComputedProps(options)
       }
 
       _processProps () {
@@ -179,7 +182,7 @@ export function createCustomElement (tagName, props) {
         return response
       }
 
-      _processMethodsAndComputedProps (props) {
+      _processMethods (props) {
         const self = this
         const keys = Object.keys(props)
         if (!keys.length) return
@@ -188,6 +191,14 @@ export function createCustomElement (tagName, props) {
           if (!self[key] && typeof props[key] === 'function') {
             self[key] = props[key].bind(self)
           }
+        })
+      }
+
+      _processComputedProps (props) {
+        const keys = Object.keys(props)
+        if (!keys.length) return
+        // Run through and bind to the component instance
+        keys.forEach(key => {
           if (key === 'computed') {
             this._processComputed(props[key])
           }

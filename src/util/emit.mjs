@@ -1,3 +1,5 @@
+/* global CustomEvent */
+
 export function emit (elem, name, opts = {}) {
   const defs = {
     bubbles: true,
@@ -5,13 +7,11 @@ export function emit (elem, name, opts = {}) {
     composed: false
   }
   const eventOptions = Object.assign({}, defs, opts)
-  const e = globalThis.document.createEvent('CustomEvent')
-  e.initCustomEvent(
-    name,
-    eventOptions.bubbles,
-    eventOptions.cancelable,
-    eventOptions.detail
-  )
-  Object.defineProperty(e, 'composed', { value: eventOptions.composed })
+  const e = new CustomEvent(name, {
+    bubbles: eventOptions.bubbles,
+    cancelable: eventOptions.cancelable,
+    composed: eventOptions.composed,
+    detail: eventOptions.detail
+  })
   return elem.dispatchEvent(e)
 }

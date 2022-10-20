@@ -11,6 +11,7 @@ test.before(t => {
   const dom = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>')
   window = dom.window
   document = dom.window.document
+  globalThis.CustomEvent = window.CustomEvent
   globalThis.customElements = window.customElements
   globalThis.HTMLElement = window.HTMLElement
   globalThis.document = document

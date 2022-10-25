@@ -1,6 +1,6 @@
 {
   "name": "@ficusjs/core",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Core functions for FicusJS",
   "type": "module",
   "main": "dist/index.mjs",
@@ -9,8 +9,8 @@
   "sideEffects": false,
   "scripts": {
     "build": "run-p build:*",
-    "build:all": "rollup -i src/index.mjs -o dist/index.mjs -f es -p \"terser={mangle: { keep_fnames: true, toplevel: true, module: true }}\" -p \"filesize={}\"",
-    "build:custom-element": "rollup -i src/custom-element.mjs -o dist/custom-element.mjs -f es -p \"terser={mangle: { keep_fnames: true, toplevel: true, module: true }}\" -p \"filesize={}\"",
+    "build:all": "rollup -i src/index.mjs -o dist/index.mjs -f es -m -p \"terser={mangle: { keep_fnames: true, toplevel: true, module: true }}\" -p \"filesize={}\"",
+    "build:custom-element": "rollup -i src/custom-element.mjs -o dist/custom-element.mjs -f es -m -p \"terser={mangle: { keep_fnames: true, toplevel: true, module: true }}\" -p \"filesize={}\"",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "dev": "run-p serve open",

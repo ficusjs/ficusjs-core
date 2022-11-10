@@ -5,7 +5,10 @@ import { emit } from './util/emit.mjs'
 import { elementRenderer } from './util/element-renderer.mjs'
 
 export function createCustomElement (tagName, props) {
-  const observedAttrs = collateObservedAttrs(props.props)
+  const key = {
+    type: String
+  }
+  const observedAttrs = collateObservedAttrs({ ...props.props, key })
 
   globalThis.customElements.get(tagName) ||
   globalThis.customElements.define(
@@ -61,7 +64,7 @@ export function createCustomElement (tagName, props) {
         this.ficusCustomElement = tagName
 
         // It's handy to access what was passed through originally, so we'll store in private props
-        this._props = options.props || {}
+        this._props = { ...(options.props || {}), key }
         this._computed = options.computed || {}
 
         // create a cache for the computed functions

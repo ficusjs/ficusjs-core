@@ -8,6 +8,9 @@ export function createCustomElement (tagName, props) {
   const key = {
     type: String
   }
+  if (props.props['key']) {
+    console.warn(`Prop 'key' is a default property on the component instance, you cannot override it.`)
+  }
   const observedAttrs = collateObservedAttrs({ ...props.props, key })
 
   globalThis.customElements.get(tagName) ||

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { collateObservedAttrs } from './util/collate-observed-attrs.mjs'
 import { toKebabCase } from './util/to-kebab-case.mjs'
 import { isPromise } from './util/is-promise.mjs'
@@ -8,8 +9,8 @@ export function createCustomElement (tagName, props) {
   const key = {
     type: String
   }
-  if (props.props['key']) {
-    console.warn(`Prop 'key' is a default property on the component instance, you cannot override it.`)
+  if (props.props && props.props.key) {
+    console.warn('Prop "key" is a default property on the component instance, you cannot override it.')
   }
   const observedAttrs = collateObservedAttrs({ ...props.props, key })
 

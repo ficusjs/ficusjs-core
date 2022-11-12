@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Function to use another FicusJS module
  * @param {object} module

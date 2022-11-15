@@ -19,6 +19,7 @@ export interface CustomElementPropertyTree {
 
 export type CustomElementOptions<T> = {
   renderer?: (what: T, where: Element) => void
+  root?: "standard" | "shadow" | "shadow:closed"
   render: () => T
   computed?: CustomElementComputedTree
   props?: CustomElementPropertyTree

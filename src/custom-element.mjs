@@ -164,6 +164,7 @@ export function createCustomElement (tagName, props) {
                 instanceResponse[key] = attributeValue != null ? attributeValue.toString() === 'true' : defaultValue != null ? defaultValue : false
                 break
               case Object:
+              case Array:
                 try {
                   instanceResponse[key] = attributeValue != null ? JSON.parse(attributeValue) : defaultValue != null ? defaultValue : undefined
                 } catch (ex) {

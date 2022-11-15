@@ -176,7 +176,7 @@ createCustomElement('mock-props-multiple', {
       observed: true
     },
     myArray: {
-      type: Object,
+      type: Array,
       observed: true
     },
     mySecondString: {

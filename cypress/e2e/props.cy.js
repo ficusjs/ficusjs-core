@@ -105,4 +105,21 @@ describe('Props component', () => {
         .should('have.text', '{"a":"test","b":"test2"}')
     })
   })
+
+  describe('multiple property binding', () => {
+    before(() => {
+      cy.get('mock-props-multiple')
+        .invoke('prop', {
+          myString: 'My orange',
+          myObject: { a: 'test', b: 'test2' }
+        })
+    })
+
+    it('observed prop is changed', () => {
+      cy.get('#my-string-prop')
+        .should('have.text', 'My orange')
+      cy.get('#my-object-prop')
+        .should('have.text', '{"a":"test","b":"test2"}')
+    })
+  })
 })

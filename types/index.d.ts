@@ -2,27 +2,27 @@
 export type CustomElementGetter = () => any
 export type CustomElementMethod = (...args: any[]) => void
 
-export interface CustomElementProperty {
-  type: String | Number | Boolean | Object
+export interface CustomElementProperty<AT> {
+  type: String | Number | Boolean | Object | Array<AT>
   required?: boolean
   observed?: boolean
-  default?: string | number | boolean | object
+  default?: string | number | boolean | object | Array<AT>
 }
 
 export interface CustomElementComputedTree {
   [key: string]: CustomElementGetter
 }
 
-export interface CustomElementPropertyTree {
-  [key: string]: CustomElementProperty
+export interface CustomElementPropertyTree<AT> {
+  [key: string]: CustomElementProperty<AT>
 }
 
-export type CustomElementOptions<T> = {
-  renderer?: (what: T, where: Element) => void
+export type CustomElementOptions<WT, AT> = {
+  renderer?: (what: WT, where: Element) => void
   root?: "standard" | "shadow" | "shadow:closed"
-  render: () => T
+  render: () => WT
   computed?: CustomElementComputedTree
-  props?: CustomElementPropertyTree
+  props?: CustomElementPropertyTree<AT>
   created?: () => void
   mounted?: () => void
   updated?: () => void
@@ -32,7 +32,7 @@ export type CustomElementOptions<T> = {
   [key: string]: CustomElementMethod
 }
 
-export declare function createCustomElement<I, T>(tagName: string, options: CustomElementOptions<T>): void
+export declare function createCustomElement<WT, AT>(tagName: string, options: CustomElementOptions<WT, AT>): void
 
 // Modules
 type UseFn = typeof use

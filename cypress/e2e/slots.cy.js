@@ -1,6 +1,6 @@
-/* global describe cy before it  */
+/* global describe cy beforeEach it  */
 describe('Slots component', () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit('custom-element')
   })
 

@@ -1,7 +1,7 @@
-/* global describe cy before it */
+/* global describe cy beforeEach it */
 /* eslint-disable no-unused-expressions */
 describe('Props component', () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit('custom-element')
   })
 
@@ -61,7 +61,7 @@ describe('Props component', () => {
   })
 
   describe('change observed prop', () => {
-    before(() => {
+    beforeEach(() => {
       cy.get('#change-observed-prop').click()
     })
 
@@ -72,7 +72,7 @@ describe('Props component', () => {
   })
 
   describe('change not observed prop', () => {
-    before(() => {
+    beforeEach(() => {
       cy.get('#change-not-observed-prop').click()
     })
 
@@ -83,7 +83,7 @@ describe('Props component', () => {
   })
 
   describe('string property binding', () => {
-    before(() => {
+    beforeEach(() => {
       cy.get('mock-props-multiple')
         .invoke('prop', 'myString', 'My orange')
     })
@@ -95,7 +95,7 @@ describe('Props component', () => {
   })
 
   describe('object property binding', () => {
-    before(() => {
+    beforeEach(() => {
       cy.get('mock-props-multiple')
         .invoke('prop', 'myObject', { a: 'test', b: 'test2' })
     })
@@ -107,7 +107,7 @@ describe('Props component', () => {
   })
 
   describe('multiple property binding', () => {
-    before(() => {
+    beforeEach(() => {
       cy.get('mock-props-multiple')
         .invoke('prop', {
           myString: 'My orange',

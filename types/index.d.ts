@@ -1,28 +1,27 @@
 // Custom elements
-export type CustomElementGetter = () => any
-export type CustomElementMethod = (...args: any[]) => void
+export type CustomElementMethod = (...args: any[]) => any
 
-export interface CustomElementProperty<AT> {
-  type: String | Number | Boolean | Object | Array<AT>
+export interface CustomElementProperty<TArrayPropType = any> {
+  type: String | Number | Boolean | Object | Array<TArrayPropType>
   required?: boolean
   observed?: boolean
-  default?: string | number | boolean | object | Array<AT>
+  default?: string | number | boolean | object | Array<TArrayPropType>
 }
 
-export interface CustomElementComputedTree {
-  [key: string]: CustomElementGetter
+export interface CustomElementComputedTree<TGetterReturnType = any> {
+  [key: string]: TGetterReturnType
 }
 
-export interface CustomElementPropertyTree<AT> {
-  [key: string]: CustomElementProperty<AT>
+export interface CustomElementPropertyTree<TArrayPropType = any> {
+  [key: string]: CustomElementProperty<TArrayPropType>
 }
 
-export type CustomElementOptions<WT, AT> = {
-  renderer?: (what: WT, where: Element) => void
+export type CustomElementOptions<TRenderResult, TArrayPropType = string, TGetterReturnType = any> = {
+  renderer?: (what: TRenderResult, where: Element) => void
   root?: "standard" | "shadow" | "shadow:closed"
-  render: () => WT
-  computed?: CustomElementComputedTree
-  props?: CustomElementPropertyTree<AT>
+  render: () => TRenderResult
+  computed?: CustomElementComputedTree<TGetterReturnType>
+  props?: CustomElementPropertyTree<TArrayPropType>
   created?: () => void
   mounted?: () => void
   updated?: () => void
@@ -32,7 +31,7 @@ export type CustomElementOptions<WT, AT> = {
   [key: string]: CustomElementMethod
 }
 
-export declare function createCustomElement<WT, AT>(tagName: string, options: CustomElementOptions<WT, AT>): void
+export declare function createCustomElement<TRenderResult, TArrayPropType = string>(tagName: string, options: CustomElementOptions<TRenderResult, TArrayPropType>): void
 
 // Modules
 type UseFn = typeof use

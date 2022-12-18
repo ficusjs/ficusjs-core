@@ -1,11 +1,11 @@
-/* global describe cy before it expect */
+/* global describe cy beforeEach it expect */
 /* eslint-disable no-unused-expressions */
 describe('Methods component', () => {
   const spies = {
     clicked: null
   }
 
-  before(() => {
+  beforeEach(() => {
     spies.clicked = cy.spy()
     cy.visit('custom-element')
     cy.document().then((doc) => {
@@ -19,7 +19,7 @@ describe('Methods component', () => {
   })
 
   describe('emit based on an action', () => {
-    before(() => {
+    beforeEach(() => {
       cy.get('mock-method-event button').click()
     })
 

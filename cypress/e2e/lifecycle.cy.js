@@ -1,4 +1,4 @@
-/* global describe cy before it expect  */
+/* global describe cy before beforeEach it expect  */
 /* eslint-disable no-unused-expressions */
 describe('Lifecycle component', () => {
   const spies = {
@@ -6,7 +6,7 @@ describe('Lifecycle component', () => {
     removed: null
   }
 
-  before(() => {
+  beforeEach(() => {
     spies.mounted = cy.spy()
     spies.removed = cy.spy()
     cy.visit('custom-element')
@@ -17,7 +17,7 @@ describe('Lifecycle component', () => {
   })
 
   describe('adding the lifecycle component', () => {
-    before(() => {
+    beforeEach(() => {
       cy.get('#add-lifecycle').click()
     })
 
@@ -32,7 +32,8 @@ describe('Lifecycle component', () => {
   })
 
   describe('removing the component', () => {
-    before(() => {
+    beforeEach(() => {
+      cy.get('#add-lifecycle').click()
       cy.get('#remove-lifecycle').click()
     })
 

@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/ficusjs/ficusjs-core#readme",
   "devDependencies": {
-    "@ficusjs/renderers": "5.4.1",
+    "@ficusjs/renderers": "5.5.0",
     "@ficusjs/state": "4.0.0",
     "ava": "5.1.0",
     "c8": "7.12.0",

@@ -1,4 +1,4 @@
-# ficusjs-core
+# FicusJS core
 
 FicusJS core provides functions for creating fast, lightweight web components
 and modules for packaging sets of components.

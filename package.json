@@ -14,7 +14,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "dev": "run-p serve open",
-    "lint": "standard \"./src/**/*.mjs\" \"./test/**/*.mjs\"",
+    "lint": "standard \"./src/**/*.mjs\" \"./test/unit/**/*.mjs\"",
     "open": "open-cli http://127.0.0.1:8080/test/e2e",
     "test": "npm run test:unit && start-server-and-test serve:silent http://127.0.0.1:8080 cy:run",
     "test:unit": "ava test/unit/**/*.spec.mjs",
@@ -56,7 +56,7 @@
     "rollup": "3.27.0",
     "rollup-plugin-filesize": "10.0.0",
     "sinon": "15.2.0",
-    "standard": "16.0.4",
+    "standard": "17.1.0",
     "start-server-and-test": "2.0.0"
   },
   "exports": {

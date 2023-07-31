@@ -1,5 +1,5 @@
 export function loadRenderer () {
-  return import('@ficusjs/renderers')
+  return import('./renderers/uhtml.mjs')
 }
 
 export function elementFromString (htmlStr) {

@@ -1,6 +1,6 @@
 {
   "name": "@ficusjs/core",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "description": "Core functions for FicusJS",
   "type": "module",
   "main": "dist/index.mjs",
@@ -44,8 +44,6 @@
   },
   "homepage": "https://github.com/ficusjs/ficusjs-core#readme",
   "devDependencies": {
-    "@ficusjs/renderers": "5.8.0",
-    "@ficusjs/state": "4.1.2",
     "@rollup/plugin-terser": "^0.4.3",
     "ava": "5.3.1",
     "c8": "8.0.1",

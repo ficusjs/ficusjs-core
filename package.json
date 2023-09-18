@@ -55,7 +55,7 @@
     "open-cli": "7.2.0",
     "rollup": "3.29.0",
     "rollup-plugin-filesize": "10.0.0",
-    "sinon": "15.2.0",
+    "sinon": "16.0.0",
     "standard": "17.1.0",
     "start-server-and-test": "2.0.0"
   },

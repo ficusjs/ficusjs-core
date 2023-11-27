@@ -53,7 +53,7 @@
     "node-sessionstorage": "1.0.0",
     "npm-run-all": "4.1.5",
     "open-cli": "7.2.0",
-    "rollup": "4.4.1",
+    "rollup": "4.6.0",
     "rollup-plugin-filesize": "10.0.0",
     "sinon": "17.0.1",
     "standard": "17.1.0",

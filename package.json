@@ -47,7 +47,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "ava": "5.3.1",
     "c8": "8.0.1",
-    "cypress": "13.5.1",
+    "cypress": "13.6.2",
     "http-server": "14.1.1",
     "jsdom": "22.1.0",
     "node-sessionstorage": "1.0.0",

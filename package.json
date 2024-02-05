@@ -45,7 +45,7 @@
   "homepage": "https://github.com/ficusjs/ficusjs-core#readme",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
-    "ava": "5.3.1",
+    "ava": "6.1.1",
     "c8": "8.0.1",
     "cypress": "13.5.1",
     "http-server": "14.1.1",
